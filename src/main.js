@@ -8,6 +8,11 @@ var quote = document.querySelector('.poster-quote');
 var mainPoster = document.querySelector('.main-poster');
 var posterForm = document.querySelector('.poster-form');
 var savedPostersPage = document.querySelector('.saved-posters');
+var backToMain = document.querySelector('.back-to-main');
+var showMainPoster = document.querySelector('.show-main');
+var showSavedPosters = document.querySelector('.show-saved');
+var makeYourOwnPoster = document.querySelector('.show-form');
+var randomPoster = document.querySelector('.show-random');
 
 
 
@@ -122,25 +127,15 @@ var currentPoster;
 // var showSavedButton = document.querySelector('.show-saved');
 // showSavedButton.addEventListener('click', *functionname*)
 
-var randomPoster = document.querySelector('.show-random');
+
 randomPoster.addEventListener('click', newPoster);
 
-var makeYourOwnPoster = document.querySelector('.show-form');
-makeYourOwnPoster.addEventListener('click', function() {
-  hideMain();
-  showForm();
-});
+makeYourOwnPoster.addEventListener('click', showForm);
 
-var showSavedPosters = document.querySelector('.show-saved');
-showSavedPosters.addEventListener('click', function() {
-  hideMain();
-  showSaved();
-});
+showSavedPosters.addEventListener('click', showSaved);
 
-var showMainPoster = document.querySelector('.show-main');
 showMainPoster.addEventListener('click', backButton);
 
-var backToMain = document.querySelector('.back-to-main');
 backToMain.addEventListener('click', backButton);
 
 
@@ -157,19 +152,18 @@ function newPoster() {
   quote.innerText = quotes[getRandomIndex(quotes)];
 };
 
-function hideMain() {
-  mainPoster.style.display = "none";
-}
-
 function showForm() {
-  if (posterForm.classList.contains("hidden")) {
-    posterForm.classList.toggle("hidden")}
+  posterForm.classList.toggle("hidden");
+  hideMain();
 }
 
 function showSaved() {
-  if (savedPostersPage.classList.contains("hidden")) {
-     savedPostersPage.classList.toggle("hidden");
-   }
+  savedPostersPage.classList.toggle("hidden");
+  hideMain();
+}
+
+function hideMain() {
+  mainPoster.style.display = "none";
 }
 
 function backButton() {
