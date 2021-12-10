@@ -5,6 +5,9 @@
 var title = document.querySelector('.poster-title');
 var photo = document.querySelector('.poster-img');
 var quote = document.querySelector('.poster-quote');
+var mainPoster = document.querySelector('.main-poster');
+var posterForm = document.querySelector('.poster-form');
+var savedPostersPage = document.querySelector('.saved-posters');
 
 
 
@@ -111,8 +114,35 @@ var currentPoster;
 
 // event listeners go here 👇
 
+// var savePosterButton = document.querySelector('.save-poster');
+// savePosterButton.addEventListener('click', function () {
+//   savePoster(currentPoster);
+// });
+
+// var showSavedButton = document.querySelector('.show-saved');
+// showSavedButton.addEventListener('click', *functionname*)
+
 var randomPoster = document.querySelector('.show-random');
 randomPoster.addEventListener('click', newPoster);
+
+var makeYourOwnPoster = document.querySelector('.show-form');
+makeYourOwnPoster.addEventListener('click', function() {
+  hideMain();
+  showForm();
+});
+
+var showSavedPosters = document.querySelector('.show-saved');
+showSavedPosters.addEventListener('click', function() {
+  hideMain();
+  showSaved();
+});
+
+var showMainPoster = document.querySelector('.show-main');
+showMainPoster.addEventListener('click', backButton);
+
+var backToMain = document.querySelector('.back-to-main');
+backToMain.addEventListener('click', backButton);
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -126,5 +156,27 @@ function newPoster() {
   title.innerText = titles[getRandomIndex(titles)];
   quote.innerText = quotes[getRandomIndex(quotes)];
 };
+
+function hideMain() {
+  mainPoster.style.display = "none";
+}
+
+function showForm() {
+  if (posterForm.classList.contains("hidden")) {
+    posterForm.classList.toggle("hidden")}
+}
+
+function showSaved() {
+  if (savedPostersPage.classList.contains("hidden")) {
+     savedPostersPage.classList.toggle("hidden");
+   }
+}
+
+function backButton() {
+  posterForm.classList.toggle("hidden");
+  savedPostersPage.classList.toggle("hidden");
+  mainPoster.style.display = "block";
+}
+
 
 newPoster();
