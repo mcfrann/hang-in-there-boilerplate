@@ -13,7 +13,10 @@ var showMainPoster = document.querySelector('.show-main');
 var showSavedPosters = document.querySelector('.show-saved');
 var makeYourOwnPoster = document.querySelector('.show-form');
 var randomPoster = document.querySelector('.show-random');
-
+var showMyPoster = document.querySelector('.make-poster');
+var photoInput = document.querySelector('#poster-image-url');
+var quoteInput = document.querySelector('#poster-quote');
+var titleInput = document.querySelector('#poster-title');
 
 
 // we've provided you with some data to work with 👇
@@ -116,14 +119,13 @@ var quotes = [
 ];
 var savedPosters = [];
 var currentPoster;
-
 // event listeners go here 👇
 
 // var savePosterButton = document.querySelector('.save-poster');
 // savePosterButton.addEventListener('click', function () {
 //   savePoster(currentPoster);
 // });
-
+//
 // var showSavedButton = document.querySelector('.show-saved');
 // showSavedButton.addEventListener('click', *functionname*)
 
@@ -138,6 +140,7 @@ showMainPoster.addEventListener('click', backButton);
 
 backToMain.addEventListener('click', backButton);
 
+showMyPoster.addEventListener('click', showCreatedPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -172,5 +175,13 @@ function backButton() {
   mainPoster.style.display = "block";
 }
 
+function showCreatedPoster(e) {
+  e.preventDefault();
+  backButton();
+  currentPoster = new Poster(photoInput.value, titleInput.value, quoteInput.value);
+  photo.src = currentPoster.imageURL;
+  title.innerText = currentPoster.title;
+  quote.innerText = currentPoster.quote;
+}
 
 newPoster();
