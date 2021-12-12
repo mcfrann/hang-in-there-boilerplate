@@ -19,7 +19,6 @@ var quoteInput = document.querySelector('#poster-quote');
 var titleInput = document.querySelector('#poster-title');
 var savePoster = document.querySelector('.save-poster');
 var poster = document.querySelector('.poster');
-var miniPoster = document.querySelector('.mini-poster');
 var savedPostersGrid = document.querySelector('.saved-posters-grid');
 
 
@@ -145,6 +144,7 @@ showMyPoster.addEventListener('click', function(event) {
 
 savePoster.addEventListener('click', userSavePoster);
 
+savedPostersGrid.addEventListener('dblclick', deletePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -168,13 +168,16 @@ function showForm() {
 function showSaved() {
   savedPostersPage.classList.toggle("hidden");
   hideMain();
+  savedPostersGrid.innerHTML = ``;
   for (var i = 0; i < savedPosters.length; i++) {
   savedPostersGrid.innerHTML += `
+    <button id="delete-poster-button">
     <section class="mini-poster" id=${savedPosters[i].id}>
     <img src="${savedPosters[i].imageURL}">
     <h2>${savedPosters[i].title}</h2>
     <h4>${savedPosters[i].quote}</h4>
     </section>
+    </button>
     `;
   }
 }
@@ -221,7 +224,16 @@ function showRandomPoster() {
   currentPoster = new Poster(photo.src, title.innerText, quote.innerText);
 }
 
+function deletePoster(event) {
+var id = event.target.id;
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (id === savedPosters[i].id.toString()) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  showSaved();
+  savedPostersPage.classList.toggle("hidden");
+}
 
-console.log(savedPosters);
 
 newPoster();
