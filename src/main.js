@@ -124,7 +124,6 @@ var quotes = [
 ];
 var savedPosters = [];
 var currentPoster;
-var currentMainPoster;
 
 
 // event listeners go here 👇
@@ -158,6 +157,7 @@ function newPoster() {
   photo.src = images[getRandomIndex(images)];
   title.innerText = titles[getRandomIndex(titles)];
   quote.innerText = quotes[getRandomIndex(quotes)];
+  showRandomPoster();
 };
 
 function showForm() {
@@ -169,7 +169,7 @@ function showSaved() {
   savedPostersPage.classList.toggle("hidden");
   hideMain();
   for (var i = 0; i < savedPosters.length; i++) {
-  savedPostersGrid.innerHTML = `
+  savedPostersGrid.innerHTML += `
     <section class="mini-poster" id=${savedPosters[i].id}>
     <img src="${savedPosters[i].imageURL}">
     <h2>${savedPosters[i].title}</h2>
@@ -209,9 +209,18 @@ function savePosterData() {
 }
 
 function userSavePoster() {
+    if (savedPosters.includes(currentPoster) === false) {
     savedPosters.push(currentPoster);
     alert("Poster has been saved!");
+  } else {
+    alert("Can't save a poster twice!");
+  }
 }
+
+function showRandomPoster() {
+  currentPoster = new Poster(photo.src, title.innerText, quote.innerText);
+}
+
 
 console.log(savedPosters);
 
