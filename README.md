@@ -9,7 +9,7 @@ Creating motivational posters is only a few clicks away. Making motivational pos
 ![](form-result.png)
 ![](saved.png)
 
-Alright, you're all set to create some amazing new posters. Time to get out there and create some motivation!
+Alright, you're all set to create some amazing new posters. Time to get out there and create some motivation
 
 
 ### Project Motivation
