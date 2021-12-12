@@ -17,6 +17,11 @@ var showMyPoster = document.querySelector('.make-poster');
 var photoInput = document.querySelector('#poster-image-url');
 var quoteInput = document.querySelector('#poster-quote');
 var titleInput = document.querySelector('#poster-title');
+var savePoster = document.querySelector('.save-poster');
+var poster = document.querySelector('.poster');
+var miniPoster = document.querySelector('.mini-poster');
+var savedPostersGrid = document.querySelector('.saved-posters-grid');
+
 
 
 // we've provided you with some data to work with 👇
@@ -119,16 +124,10 @@ var quotes = [
 ];
 var savedPosters = [];
 var currentPoster;
+var currentMainPoster;
+
+
 // event listeners go here 👇
-
-// var savePosterButton = document.querySelector('.save-poster');
-// savePosterButton.addEventListener('click', function () {
-//   savePoster(currentPoster);
-// });
-//
-// var showSavedButton = document.querySelector('.show-saved');
-// showSavedButton.addEventListener('click', *functionname*)
-
 
 randomPoster.addEventListener('click', newPoster);
 
@@ -138,9 +137,15 @@ showSavedPosters.addEventListener('click', showSaved);
 
 showMainPoster.addEventListener('click', backButton);
 
-backToMain.addEventListener('click', backButton);
+backToMain.addEventListener('click', backButtonFromSaved);
 
-showMyPoster.addEventListener('click', showCreatedPoster);
+showMyPoster.addEventListener('click', function(event) {
+  event.preventDefault();
+  showCreatedPoster();
+});
+
+savePoster.addEventListener('click', userSavePoster);
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -163,6 +168,15 @@ function showForm() {
 function showSaved() {
   savedPostersPage.classList.toggle("hidden");
   hideMain();
+  for (var i = 0; i < savedPosters.length; i++) {
+  savedPostersGrid.innerHTML = `
+    <section class="mini-poster" id=${savedPosters[i].id}>
+    <img src="${savedPosters[i].imageURL}">
+    <h2>${savedPosters[i].title}</h2>
+    <h4>${savedPosters[i].quote}</h4>
+    </section>
+    `;
+  }
 }
 
 function hideMain() {
@@ -171,17 +185,34 @@ function hideMain() {
 
 function backButton() {
   posterForm.classList.toggle("hidden");
+  mainPoster.style.display = "block";
+}
+
+function backButtonFromSaved() {
   savedPostersPage.classList.toggle("hidden");
   mainPoster.style.display = "block";
 }
 
-function showCreatedPoster(e) {
-  e.preventDefault();
+function showCreatedPoster() {
   backButton();
   currentPoster = new Poster(photoInput.value, titleInput.value, quoteInput.value);
   photo.src = currentPoster.imageURL;
   title.innerText = currentPoster.title;
   quote.innerText = currentPoster.quote;
+  savePosterData();
 }
+
+function savePosterData() {
+  images.push(photoInput.value);
+  titles.push(titleInput.value);
+  quotes.push(quoteInput.value);
+}
+
+function userSavePoster() {
+    savedPosters.push(currentPoster);
+    alert("Poster has been saved!");
+}
+
+console.log(savedPosters);
 
 newPoster();
