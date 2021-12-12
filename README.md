@@ -4,7 +4,10 @@
 
 Creating motivational posters is only a few clicks away. Making motivational posters with our website is quick and seamless-- just click the `Show Another Random Poster` button to make a new poster. Or, fuel your creative side and make your own poster by clicking `Make Your Own Poster`. Want to save your new creation to share with your friends? Just click `Save This Poster` and your new creations will be accessible via the `Show Saved Posters` button. It's that easy!
 
+![](homepage.png)
 ![](form.png)
+![](form-result.png)
+![](saved.png)
 
 Alright, you're all set to create some amazing new posters. Time to get out there and create some motivation!
 
