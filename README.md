@@ -2,12 +2,15 @@
 
 ## Overview
 
-Creating motivational posters is only a few clicks away. Making motivational posters with our website is quick and seamless-- just click the `Show Another Random Poster` button to make a new poster. Or, fuel your creative side and make your own poster by clicking `Make Your Own Poster`. Want to save your new creation to share with your friends? Just click `Save This Poster` and your new creations will be accessible via the `Show Saved Posters` button. It's that easy!
+Creating motivational posters is only a few clicks away. Making motivational posters with our website is quick and seamless-- just click the `Show Another Random Poster` button to make a new poster. Or, fuel your creative side and make your own poster by clicking `Make Your Own Poster`.  
 
-![](homepage.png)
-![](form.png)
-![](form-result.png)
-![](saved.png)
+<img width="607" alt="Screen Shot 2021-12-12 at 4 50 09 PM" src="https://user-images.githubusercontent.com/93341234/145734681-4bc5d4d7-351b-4d45-8bac-0ecd961ad26b.png">        
+  &nbsp;    
+
+Want to save your new creation to share with your friends? Just click `Save This Poster` and your new creations will be accessible via the `Show Saved Posters` button. It's that easy!
+
+<img width="613" alt="Screen Shot 2021-12-12 at 4 53 06 PM" src="https://user-images.githubusercontent.com/93341234/145734743-96b504d6-1784-4214-99a2-6f79bd0d6a23.png">  
+&nbsp;
 
 Alright, you're all set to create some amazing new posters. Time to get out there and create some motivation!
 
