@@ -212,11 +212,11 @@ function savePosterData() {
 }
 
 function userSavePoster() {
-    if (savedPosters.includes(currentPoster) === false) {
-    savedPosters.push(currentPoster);
-    alert("Poster has been saved!");
+  if (savedPosters.includes(currentPoster) === false) {
+  savedPosters.push(currentPoster);
+  alert("Poster has been saved!");
   } else {
-    alert("Can't save a poster twice!");
+  alert("Can't save a poster twice!");
   }
 }
 
@@ -225,7 +225,7 @@ function showRandomPoster() {
 }
 
 function deletePoster(event) {
-var id = event.target.id;
+  var id = event.target.id;
   for (var i = 0; i < savedPosters.length; i++) {
     if (id === savedPosters[i].id.toString()) {
       savedPosters.splice(i, 1);
@@ -234,6 +234,5 @@ var id = event.target.id;
   showSaved();
   savedPostersPage.classList.toggle("hidden");
 }
-
 
 newPoster();
